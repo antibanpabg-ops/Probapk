@@ -211,7 +211,7 @@
         }
     </script>
 
-    <!-- Отправка формы в Make.com -->
+    <!-- Отправка формы с моментальным редиректом на thanks.html -->
     <script>
         document.getElementById('callbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -226,8 +226,8 @@
                 body: JSON.stringify({ phone: phone, message: message })
             })
             .then(() => {
-                alert('Заявка принята! Мастер перезвонит в ближайшее время.');
-                this.reset();
+                // Переход на страницу "Спасибо" вместо вызова alert
+                window.location.href = 'thanks.html';
             })
             .catch(() => alert('Ошибка сети, свяжитесь напрямую по телефону.'));
         });
